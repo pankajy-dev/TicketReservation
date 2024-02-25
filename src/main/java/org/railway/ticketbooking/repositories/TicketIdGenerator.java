@@ -22,7 +22,7 @@ public class TicketIdGenerator
   @Override
   public Integer decrementId() {
     if (id != 0) {
-      return id++ ;
+      return id-- ;
     }
     return id;
   }

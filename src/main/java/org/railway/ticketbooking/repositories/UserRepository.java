@@ -20,6 +20,9 @@ public class UserRepository {
     user = new User(UserIdGenerator.getInstance().incrementId(), "pankaj", "yadav", "yadavpankaj28@gmail.com",
         "pankajyadav", UserType.USER);
     dbUsers.put(user.getId(), user);
+    user = new User(UserIdGenerator.getInstance().incrementId(), "john", "doe", "johndoe@email.com",
+        "johndoe", UserType.USER);
+    dbUsers.put(user.getId(), user);
   }
 
   public User getUserByEmail(String email) {

@@ -10,6 +10,8 @@ import org.railway.ticketbooking.dtos.response.UserResponseDto;
 import org.railway.ticketbooking.models.SectionType;
 import org.railway.ticketbooking.models.User;
 import org.railway.ticketbooking.repositories.ScheduledTrainRepository;
+import org.railway.ticketbooking.repositories.TicketRepository;
+import org.railway.ticketbooking.repositories.TrainRepository;
 import org.railway.ticketbooking.repositories.UserRepository;
 import org.railway.ticketbooking.services.AdminService;
 
@@ -22,9 +24,6 @@ import java.util.List;
  */
 @Path("/admin/")
 public class AdminResource {
-
-  public static final String ADMIN_USER = "admin";
-  public static final String ADMIN_PASSWORD = "pa$$word@123";
 
   @GET
   @Path("users")
@@ -63,7 +62,8 @@ public class AdminResource {
   public Response getUsersAndSeatsInSection(@QueryParam("trainId") int trainId,
       @QueryParam("section") SectionType sectionType) {
     ScheduledTrainRepository schTrainRepo = new ScheduledTrainRepository();
-    AdminService adminSevice = new AdminService(schTrainRepo);
+    AdminService adminSevice = new AdminService(new UserRepository(), new TicketRepository(),
+        new TrainRepository(), new ScheduledTrainRepository());
     HashMap<java.lang.Integer, TrainSectionSeatsDto> trainSectionSeatsDtos =
         adminSevice.getAllTrainSeats(trainId, sectionType);
     if (trainSectionSeatsDtos != null && trainSectionSeatsDtos.size() > 0) {

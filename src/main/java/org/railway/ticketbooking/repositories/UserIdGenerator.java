@@ -23,7 +23,7 @@ public class UserIdGenerator
   @Override
   public Integer decrementId() {
     if (id != 0) {
-      return id++ ;
+      return id-- ;
     }
     return id;
   }

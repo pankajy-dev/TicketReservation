@@ -18,8 +18,6 @@ import java.util.Base64;
 public class AuthenticationFilter
     implements ContainerRequestFilter {
 
-  public static final String ADMIN_USER = "admin";
-  public static final String ADMIN_PASSWORD = "pa$$word@123";
   public static final String REGISTER_URI = "user/register/";
 
   @Override
