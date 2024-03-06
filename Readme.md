@@ -1,4 +1,4 @@
-AssessMent API:
+Assessment API:
 Basic Auth -
 user = yadavpankaj28@gmail.com, password = pankajyadav
 admin user = admin@email.com, password = pa$$word@123
@@ -41,7 +41,6 @@ Sample Body :
     "userId":2,
     "trainId": 3,
     "seatId": 2,
-    "newSeatId": 7,
     "sectionType":"A",
     "ticketId":1
 }
